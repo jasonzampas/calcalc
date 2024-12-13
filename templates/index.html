@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Caloric Needs Calculator</title>
+</head>
+<body>
+    <h1>Caloric Needs Calculator</h1>
+    <form action="/" method="POST">
+        <div class="selecter">
+            <input id="height" name="height" placeholder="Height (cm)" required>
+            <input id="weight" name="weight" placeholder="Weight (kg)" required>
+            <input id="age" name="age" placeholder="Age" required>
+            <select name="exercise" id="exercise">
+                <option value="0">Select:</option>
+                <option value="1">Little to no exercise</option>
+                <option value="2">Light exercise (1-3 days/week)</option>
+                <option value="3">Medium exercise (4-5 days/week)</option>
+                <option value="4">Intense exercise (6-7 days/week)</option>
+            </select>
+
+            <button type="submit" id="submit">Calculate</button>
+        </div>
+    </form>
+
+    {% if answer %}
+        <h2>You need {{ answer }} calories per day.</h2>
+    {% endif %}
+</body>
+</html>
